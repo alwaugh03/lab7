@@ -1,4 +1,4 @@
 class Pet < ApplicationRecord
   belongs_to :owner
-  has_many :appointmentss
+  has_many :appointments
 end
