@@ -19,7 +19,13 @@ class Pet < ApplicationRecord
 
   validates :owner, presence: true
 
+  before_save :capitalize_name
+
   private
+
+  def capitalize_name
+    self.name = name.to_s.capitalize
+  end
 
   def date_of_birth_cannot_be_in_future
     return if date_of_birth.blank?

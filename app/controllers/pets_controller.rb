@@ -1,14 +1,12 @@
 class PetsController < ApplicationController
   def index
-  @pets = if params[:species].present?
-            Pet.by_species(params[:species])
-          else
-            Pet.all
-          end
+    @pets = Pet.includes(:owner)
   end
 
   def show
   @pet = Pet.find(params[:id])
-  @upcoming_appointments = @pet.appointments.upcoming
+  @upcoming_appointments = @pet.appointments
+                                  .includes(:vet)
+                                  .upcoming
   end
 end
