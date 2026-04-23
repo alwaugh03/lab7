@@ -1,9 +1,14 @@
 class VetsController < ApplicationController
   def index
-    @vets = Vet.all
+    @vets = if params[:specialization].present?
+            Vet.by_specialization(params[:specialization])
+          else
+            Vet.all
+          end
   end
 
   def show
     @vet = Vet.find(params[:id])
+    @past_appointments = @vet.appointments.past
   end
 end

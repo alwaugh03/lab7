@@ -18,4 +18,25 @@
       </li>
     <% end %>
   </ul>
+
+  <h3>Past Appointments</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Pet</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @past_appointments.each do |appt| %>
+        <tr>
+          <td><%= appt.date.strftime("%B %d, %Y %H:%M") %></td>
+          <td><%= appt.pet.name %></td>
+          <td><%= appt.status.humanize %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

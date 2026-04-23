@@ -3,10 +3,19 @@ class Appointment < ApplicationRecord
   belongs_to :vet
   has_many :treatments
 
+  scope :upcoming, -> { where("date > ?", Time.current).order(date: :asc) }
+  scope :past, -> { where("date < ?", Time.current).order(date: :desc) }
+
   enum :status, {
     scheduled: 0,
-    completed: 1,
-    cancelled: 2,
-    pending: 3
+    in_progress: 1,
+    completed: 2,
+    cancelled: 3
   }
+
+  validates :date, presence: true
+  validates :reason, presence: true
+  validates :pet, presence: true
+  validates :vet, presence: true
+  validates :status, presence: true
 end

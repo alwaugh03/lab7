@@ -5,7 +5,18 @@
     <div class="card-body">
       <p><strong>Date:</strong> <%= @appointment.date.strftime("%B %d, %Y %H:%M") %></p>
       <p><strong>Reason:</strong> <%= @appointment.reason %></p>
-      <p><strong>Status:</strong> <%= @appointment.status.capitalize %></p>
+      <p>
+        <strong>Status:</strong>
+        <span class="badge 
+          <%= case @appointment.status
+              when "scheduled" then "bg-primary"
+              when "in_progress" then "bg-warning"
+              when "completed" then "bg-success"
+              when "cancelled" then "bg-danger"
+            end %>">
+          <%= @appointment.status.humanize %>
+        </span>
+      </p>
 
       <p>
         <strong>Pet:</strong>

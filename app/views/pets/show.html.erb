@@ -23,4 +23,24 @@
       </li>
     <% end %>
   </ul>
+
+  <h3>Upcoming Appointments</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Vet</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @upcoming_appointments.each do |appt| %>
+        <tr>
+          <td><%= appt.date.strftime("%B %d, %Y %H:%M") %></td>
+          <td><%= appt.vet.first_name %> <%= appt.vet.last_name %></td>
+          <td><%= appt.status.humanize %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

@@ -16,27 +16,27 @@ owner3 = Owner.create!(
 
 # Pets 
 pet1 = owner1.pets.create!(
-  name: "Firulais", species: "Dog", breed: "Labrador",
+  name: "Firulais", species: "dog", breed: "Labrador",
   date_of_birth: "2020-01-01", weight: 25
 )
 
 pet2 = owner1.pets.create!(
-  name: "Michi", species: "Cat", breed: "Siames",
+  name: "Michi", species: "cat", breed: "Siames",
   date_of_birth: "2021-01-01", weight: 5
 )
 
 pet3 = owner2.pets.create!(
-  name: "Bunny", species: "Rabbit", breed: "Mini Lop",
+  name: "Bunny", species: "rabbit", breed: "Mini Lop",
   date_of_birth: "2022-01-01", weight: 2
 )
 
 pet4 = owner3.pets.create!(
-  name: "Rocky", species: "Dog", breed: "Bulldog",
+  name: "Rocky", species: "dog", breed: "Bulldog",
   date_of_birth: "2019-01-01", weight: 20
 )
 
 pet5 = owner2.pets.create!(
-  name: "Luna", species: "Cat", breed: "Persa",
+  name: "Luna", species: "cat", breed: "Persa",
   date_of_birth: "2020-01-01", weight: 4
 )
 
@@ -52,11 +52,11 @@ vet2 = Vet.create!(
 )
 
 # Appointments
-appt1 = Appointment.create!(pet: pet1, vet: vet1, date: Time.now, reason: "Checkup", status: 0)
-appt2 = Appointment.create!(pet: pet2, vet: vet1, date: Time.now, reason: "Vaccination", status: 1)
-appt3 = Appointment.create!(pet: pet3, vet: vet2, date: Time.now, reason: "Injury", status: 2)
-appt4 = Appointment.create!(pet: pet4, vet: vet2, date: Time.now, reason: "Surgery", status: 2)
-appt5 = Appointment.create!(pet: pet5, vet: vet1, date: Time.now, reason: "Skin issue", status: 3)
+appt1 = Appointment.create!(pet: pet1, vet: vet1, date: Time.now, reason: "Checkup", status: :scheduled)
+appt2 = Appointment.create!(pet: pet2, vet: vet1, date: Time.now, reason: "Vaccination", status: :completed)
+appt3 = Appointment.create!(pet: pet3, vet: vet2, date: Time.now, reason: "Injury", status: :in_progress)
+appt4 = Appointment.create!(pet: pet4, vet: vet2, date: Time.now, reason: "Surgery", status: :completed)
+appt5 = Appointment.create!(pet: pet5, vet: vet1, date: Time.now, reason: "Skin issue", status: :cancelled)
 
 # Treatments
 Treatment.create!(appointment: appt2, name: "Vaccine", medication: "Rabies", dosage: "1 dose", notes: "OK", administered_at: Time.now)
