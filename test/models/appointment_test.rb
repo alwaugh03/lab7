@@ -1,17 +1,18 @@
 require "test_helper"
 
 class AppointmentTest < ActiveSupport::TestCase
+  fixtures :appointments, :pets, :vets, :owners
+
   def setup
-    @owner = Owner.create!(first_name: "O", last_name: "W", email: "o@example.com", phone: "1")
-    @pet = Pet.create!(name: "Firu", species: "dog", date_of_birth: Date.today - 1.year, weight: 5, owner: @owner)
-    @vet = Vet.create!(first_name: "V", last_name: "E", email: "v@example.com", specialization: "gen")
+    @pet = pets(:one)
+    @vet = vets(:one)
   end
 
   def valid_appointment
     Appointment.new(
-      date: Time.current + 1.day,
+      date: 1.day.from_now,
       reason: "Checkup",
-      status: :scheduled,
+      status: "scheduled",
       pet: @pet,
       vet: @vet
     )

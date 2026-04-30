@@ -1,11 +1,13 @@
 require "test_helper"
 
 class VetTest < ActiveSupport::TestCase
+  fixtures :vets
+
   def valid_vet
     Vet.new(
       first_name: "Doc",
       last_name: "Smith",
-      email: "doc@example.com",
+      email: "uniquevet@example.com",
       specialization: "surgery"
     )
   end
@@ -21,9 +23,9 @@ class VetTest < ActiveSupport::TestCase
   end
 
   test "invalid duplicate email" do
-    Vet.create!(first_name: "A", last_name: "B", email: "test@mail.com", specialization: "x")
+    existing = vets(:one)
     vet = valid_vet
-    vet.email = "test@mail.com"
+    vet.email = existing.email
     assert_not vet.valid?
   end
 end

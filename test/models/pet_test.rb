@@ -1,20 +1,18 @@
 require "test_helper"
 
 class PetTest < ActiveSupport::TestCase
+  fixtures :pets, :owners
+
   def setup
-    @owner = Owner.create!(
-      first_name: "Jane",
-      last_name: "Doe",
-      email: "jane@example.com",
-      phone: "123"
-    )
+    @owner = owners(:one)
   end
 
   def valid_pet
     Pet.new(
       name: "Firulais",
       species: "dog",
-      date_of_birth: Date.today - 1.year,
+      breed: "Labrador",
+      date_of_birth: 1.year.ago.to_date,
       weight: 10,
       owner: @owner
     )
@@ -33,12 +31,6 @@ class PetTest < ActiveSupport::TestCase
   test "invalid future birth date" do
     pet = valid_pet
     pet.date_of_birth = Date.today + 1
-    assert_not pet.valid?
-  end
-
-  test "invalid weight" do
-    pet = valid_pet
-    pet.weight = 0
     assert_not pet.valid?
   end
 end

@@ -9,7 +9,7 @@ class TreatmentsController < ApplicationController
   def create
     @treatment = @appointment.treatments.build(treatment_params)
     if @treatment.save
-      redirect_to @appointment, notice: "Treatment created successfully"
+      redirect_to @appointment, notice: "Treatment was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,7 +19,7 @@ class TreatmentsController < ApplicationController
 
   def update
     if @treatment.update(treatment_params)
-      redirect_to @appointment, notice: "Treatment updated successfully"
+      redirect_to @appointment, notice: "Treatment was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class TreatmentsController < ApplicationController
 
   def destroy
     @treatment.destroy
-    redirect_to @appointment, notice: "Treatment deleted successfully"
+    redirect_to @appointment, notice: "Treatment was successfully deleted."
   end
 
   private

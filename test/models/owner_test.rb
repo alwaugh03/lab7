@@ -1,11 +1,13 @@
 require "test_helper"
 
 class OwnerTest < ActiveSupport::TestCase
+  fixtures :owners
+
   def valid_owner
     Owner.new(
       first_name: "John",
       last_name: "Doe",
-      email: "john@example.com",
+      email: "unique@example.com",
       phone: "123456"
     )
   end
@@ -27,9 +29,9 @@ class OwnerTest < ActiveSupport::TestCase
   end
 
   test "invalid duplicate email" do
-    Owner.create!(first_name: "A", last_name: "B", email: "test@mail.com", phone: "1")
+    existing = owners(:one)
     owner = valid_owner
-    owner.email = "test@mail.com"
+    owner.email = existing.email
     assert_not owner.valid?
   end
 end

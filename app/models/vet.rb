@@ -1,5 +1,5 @@
 class Vet < ApplicationRecord
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
 
   scope :by_specialization, ->(specialization) { where(specialization: specialization) }
 

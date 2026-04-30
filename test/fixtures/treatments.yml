@@ -1,17 +1,16 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   appointment: one
-  name: MyString
-  medication: MyString
-  dosage: MyString
-  notes: MyText
+  name: Injection
+  medication: Antibiotic
+  dosage: 10mg
+  notes: All good
   administered_at: 2026-04-09 17:54:38
 
 two:
   appointment: two
-  name: MyString
-  medication: MyString
-  dosage: MyString
-  notes: MyText
+  name: Vaccine
+  medication: Rabies
+  dosage: 5ml
+  notes: No issues
   administered_at: 2026-04-09 17:54:38
+

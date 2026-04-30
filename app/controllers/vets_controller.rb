@@ -17,7 +17,7 @@ class VetsController < ApplicationController
   def create
     @vet = Vet.new(vet_params)
     if @vet.save
-      redirect_to @vet, notice: "Vet created successfully"
+      redirect_to @vet, notice: "Vet was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class VetsController < ApplicationController
 
   def update
     if @vet.update(vet_params)
-      redirect_to @vet, notice: "Vet updated successfully"
+      redirect_to @vet, notice: "Vet was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class VetsController < ApplicationController
 
   def destroy
     @vet.destroy
-    redirect_to vets_path, notice: "Vet deleted successfully"
+    redirect_to vets_path, notice: "Vet deleted successfully."
   end
 
   private

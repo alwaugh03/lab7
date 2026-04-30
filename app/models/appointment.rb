@@ -1,7 +1,7 @@
 class Appointment < ApplicationRecord
   belongs_to :pet
   belongs_to :vet
-  has_many :treatments
+  has_many :treatments, dependent: :destroy
 
   scope :upcoming, -> { where("date > ?", Time.current).order(date: :asc) }
   scope :past, -> { where("date < ?", Time.current).order(date: :desc) }

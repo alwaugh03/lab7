@@ -14,7 +14,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      redirect_to @appointment, notice: "Appointment created successfully"
+      redirect_to @appointment, notice: "Appointment was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,7 +24,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to @appointment, notice: "Appointment updated successfully"
+      redirect_to @appointment, notice: "Appointment was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to appointments_path, notice: "Appointment deleted successfully"
+    redirect_to appointments_path, notice: "Appointment was successfully deleted."
   end
 
   private
