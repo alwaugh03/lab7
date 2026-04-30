@@ -40,3 +40,10 @@
     </tbody>
   </table>
 </div>
+
+<%= link_to "Edit", edit_vet_path(@vet), class: "btn btn-warning" %>
+
+<%= button_to "Delete", vet_path(@vet),
+    method: :delete,
+    data: { turbo_confirm: "Are you sure?" },
+    class: "btn btn-danger" %>

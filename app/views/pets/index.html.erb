@@ -24,6 +24,7 @@
         <th>Breed</th>
         <th>Owner</th>
         <th>Date of Birth</th>
+        <th>Actions</th>
       </tr>
     </thead>
 
@@ -35,6 +36,14 @@
           <td><%= pet.breed %></td>
           <td><%= pet.owner.first_name %> <%= pet.owner.last_name %></td>
           <td><%= pet.date_of_birth.strftime("%B %d, %Y") %></td>
+          <td>
+            <%= link_to "Edit", edit_pet_path(pet), class: "btn btn-sm btn-warning" %>
+
+            <%= button_to "Delete", pet_path(pet),
+                  method: :delete,
+                  data: { turbo_confirm: "Are you sure?" },
+                  class: "btn btn-sm btn-danger" %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -8,6 +8,7 @@
         <th>Email</th>
         <th>Phone</th>
         <th>Number of Pets</th>
+        <th>Actions</th>
       </tr>
     </thead>
 
@@ -20,6 +21,14 @@
           <td><%= owner.email %></td>
           <td><%= owner.phone %></td>
           <td><%= owner.pets.size %></td>
+          <td>
+            <%= link_to "Edit", edit_owner_path(owner), class: "btn btn-sm btn-warning" %>
+
+            <%= button_to "Delete", owner_path(owner),
+                  method: :delete,
+                  data: { turbo_confirm: "Are you sure?" },
+                  class: "btn btn-sm btn-danger" %>
+          </td>
         </tr>
       <% end %>
     </tbody>

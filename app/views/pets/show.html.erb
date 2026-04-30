@@ -44,3 +44,10 @@
     </tbody>
   </table>
 </div>
+
+<%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-warning" %>
+
+<%= button_to "Delete", pet_path(@pet),
+    method: :delete,
+    data: { turbo_confirm: "Are you sure?" },
+    class: "btn btn-danger" %>

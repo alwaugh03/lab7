@@ -9,6 +9,7 @@
         <th>Vet</th>
         <th>Reason</th>
         <th>Status</th>
+        <th>Actions</th>
       </tr>
     </thead>
 
@@ -35,7 +36,15 @@
               end %>">
             <%= appt.status.humanize %>
           </span>
-        </td>
+          </td>
+          <td>
+            <%= link_to "Edit", edit_appointment_path(appt), class: "btn btn-sm btn-warning" %>
+
+            <%= button_to "Delete", appointment_path(appt),
+                  method: :delete,
+                  data: { turbo_confirm: "Are you sure?" },
+                  class: "btn btn-sm btn-danger" %>
+          </td>
         </tr>
       <% end %>
     </tbody>

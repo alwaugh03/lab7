@@ -5,7 +5,10 @@ class PetsController < ApplicationController
     @pets = Pet.includes(:owner)
   end
 
-  def show; end
+  def show
+    @pet = Pet.find(params[:id])
+    @upcoming_appointments = @pet.appointments.upcoming
+  end
 
   def new
     @pet = Pet.new
