@@ -44,6 +44,7 @@
       <th>Name</th>
       <th>Medication</th>
       <th>Dosage</th>
+      <th>Notes</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -54,6 +55,10 @@
         <td><%= t.name %></td>
         <td><%= t.medication %></td>
         <td><%= t.dosage %></td>
+
+        <td>
+          <%= t.clinical_notes %>
+        </td>
 
         <td>
           <%= link_to "Edit",

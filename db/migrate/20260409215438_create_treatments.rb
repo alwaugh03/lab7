@@ -5,7 +5,6 @@ class CreateTreatments < ActiveRecord::Migration[8.1]
       t.string :name
       t.string :medication
       t.string :dosage
-      t.text :notes
       t.datetime :administered_at
 
       t.timestamps
