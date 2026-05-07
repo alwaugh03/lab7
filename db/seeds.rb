@@ -78,8 +78,53 @@ appt4 = Appointment.create!(pet: pet4, vet: vet2, date: Time.now, reason: "Surge
 appt5 = Appointment.create!(pet: pet5, vet: vet1, date: Time.now, reason: "Skin issue", status: :cancelled)
 
 # Treatments
-Treatment.create!(appointment: appt2, name: "Vaccine", medication: "Rabies", dosage: "1 dose", notes: "OK", administered_at: Time.now)
-Treatment.create!(appointment: appt3, name: "Pain Relief", medication: "Ibuprofen", dosage: "50mg", notes: "Monitor", administered_at: Time.now)
-Treatment.create!(appointment: appt4, name: "Surgery", medication: "Anesthesia", dosage: "Standard", notes: "Done", administered_at: Time.now)
-Treatment.create!(appointment: appt3, name: "Bandage", medication: "None", dosage: "-", notes: "Applied", administered_at: Time.now)
-Treatment.create!(appointment: appt2, name: "Follow-up", medication: "None", dosage: "-", notes: "Check later", administered_at: Time.now)
+Treatment.create!(
+  appointment: appt2,
+  name: "Vaccine",
+  medication: "Rabies",
+  dosage: "1 dose",
+  clinical_notes: "
+    <h2>Vaccination Notes</h2>
+    <p><strong>Patient responded well</strong> to the vaccine.</p>
+    <ul>
+      <li>No fever detected</li>
+      <li>Energy levels normal</li>
+      <li>Follow-up recommended</li>
+    </ul>
+  ",
+  administered_at: Time.now
+)
+
+Treatment.create!(
+  appointment: appt3,
+  name: "Pain Relief",
+  medication: "Ibuprofen",
+  dosage: "50mg",
+  clinical_notes: "
+    <h2>Pain Management</h2>
+    <p><strong>Medication administered successfully.</strong></p>
+    <ul>
+      <li>Monitor appetite</li>
+      <li>Observe mobility</li>
+      <li>Return if symptoms worsen</li>
+    </ul>
+  ",
+  administered_at: Time.now
+)
+
+Treatment.create!(
+  appointment: appt4,
+  name: "Surgery",
+  medication: "Anesthesia",
+  dosage: "Standard",
+  clinical_notes: "
+    <h2>Post Surgery Report</h2>
+    <p><strong>Surgery completed without complications.</strong></p>
+    <ul>
+      <li>Stable vital signs</li>
+      <li>Recovery started</li>
+      <li>Rest required for 7 days</li>
+    </ul>
+  ",
+  administered_at: Time.now
+)

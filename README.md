@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
+This README documents the steps necessary to get the
 application up and running.
 
-Things you may want to cover:
+* set up and run the app with bundle install, bin/rails db:setup, bin/rails server.
 
-* Ruby version
+* libvips, action_text is required as a system dependency for image variants, installation is done with sudo apt update,
+sudo apt install libvips and bin/rails action_text:install, bin/rails db:migrate
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* sanitization check results: no alerts deployed, text shown as is
