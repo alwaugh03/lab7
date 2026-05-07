@@ -51,6 +51,25 @@ vet2 = Vet.create!(
   email: "luis@vet.com", phone: "222", specialization: "Surgery"
 )
 
+# Attach photos
+pet1.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/firulais.jpg")),
+  filename: "firulais.jpg",
+  content_type: "image/jpeg"
+)
+
+pet2.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/michi.jpg")),
+  filename: "michi.jpg",
+  content_type: "image/jpeg"
+)
+
+pet3.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/rocky.jpg")),
+  filename: "rocky.jpg",
+  content_type: "image/jpeg"
+)
+
 # Appointments
 appt1 = Appointment.create!(pet: pet1, vet: vet1, date: Time.now, reason: "Checkup", status: :scheduled)
 appt2 = Appointment.create!(pet: pet2, vet: vet1, date: Time.now, reason: "Vaccination", status: :completed)

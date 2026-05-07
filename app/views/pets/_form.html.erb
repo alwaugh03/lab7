@@ -27,5 +27,20 @@
     <%= f.collection_select :owner_id, Owner.all, :id, :first_name, {}, class: "form-select" %>
   </div>
 
-  <%= f.submit class: "btn btn-primary" %>
+  <% if pet.persisted? && pet.photo.attached? %>
+    <div class="mb-3">
+      <p class="form-label">Current photo</p>
+
+      <%= image_tag pet.photo, width: 100, class: "img-thumbnail" %>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :photo, class: "form-label" %>
+    <%= f.file_field :photo, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
 <% end %>
